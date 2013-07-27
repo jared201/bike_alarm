@@ -1,6 +1,7 @@
 {
-    "name": "bike-alarm-s"
+    "name": "bike_alarm"
   , "version": "0.0.1"
+  , "main":"bike_alarm.js"
   , "engines": {
       "node": "0.6.14"
   }
