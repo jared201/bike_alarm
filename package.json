@@ -1,5 +1,7 @@
 {
-  "name": "bike_alarm",
-  "description": "bicycle security alarm",
-  "version": "0.0.1"
+    "name": "bike-alarm-s"
+  , "version": "0.0.1"
+  , "engines": {
+      "node": "0.6.14"
+  }
 }
