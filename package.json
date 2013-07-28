@@ -3,6 +3,6 @@
   , "version": "0.0.1"
   , "main":"bike_alarm.js"
   , "engines": {
-      "node": "0.6.x"
+      "node": "0.10.x"
   }
 }
