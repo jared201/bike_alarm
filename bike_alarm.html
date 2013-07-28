@@ -41,7 +41,7 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -54,18 +54,36 @@
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-        </div>
+       <!-- </div>
       </div>
-    </div>
+    </div> -->
   {{renderPage}}
  
 </body>
 
 <template name="hello">
- 
+        <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Bicycle Security Alarm</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
          <div class="hero-unit">          
@@ -97,7 +115,25 @@
 </template>
 
 <template name="about">
- 
+       <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Bicycle Security Alarm</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li class="active"><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div> 
     <div class="container">
        <div class="row-fluid section1">
 
@@ -134,4 +170,36 @@
           </div>
        </div>
     </div>
+</template>
+
+<template name="contact">
+       <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Bicycle Security Alarm</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li class="active"><a href="/contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+  <div class="container">
+    <div class="row-fluid section1">
+    <address>
+         <strong>Advanced Idea Mekanix, Inc.</strong><br>
+              Manila, Philippines<br>
+               <br>
+         <abbr title="Phone">P:</abbr> (123) 456-7890
+      </address>
+    </div>
+  </div>
 </template>
