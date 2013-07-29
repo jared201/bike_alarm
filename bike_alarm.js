@@ -8,8 +8,8 @@ if (Meteor.isClient) {
     '/contact': 'contact'
     
   });
-  Meteor.Router.to('hello');
-  Meteor.Router.page();
+  //Meteor.Router.to('hello');
+  //Meteor.Router.page();
   Template.hello.greeting = function () {
     return "Welcome to bike_alarm.";
   };
