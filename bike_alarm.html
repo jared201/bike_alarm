@@ -5,6 +5,8 @@
     <meta name="author" content="Jared Odulio">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
     <!-- Le styles -->
+
+    
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style>
 
@@ -41,31 +43,13 @@
 </head>
 
 <body>
-   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Bicycle Security Alarm</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-       <!-- </div>
-      </div>
-    </div> -->
-  {{renderPage}}
- 
-</body>
 
-<template name="hello">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+  {{> navmenu}}
+  {{renderPage}}
+
+</body>
+<template name="navmenu">
+   <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -77,15 +61,18 @@
           <a class="brand" href="/">Bicycle Security Alarm</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/locate">Where's My Bike?</a></li>
+              <li id="homeNav"><a href="/">Home</a></li>
+              <li id="aboutNav"><a href="/about">About</a></li>
+              <li id="contactNav"><a href="/contact">Contact</a></li>
+              <li id="locateNav"><a href="/locate">Where's My Bike?</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-        </div>
+       </div>
       </div>
     </div>
+</template>
+<template name="hello">
+    
     <div class="container">
       <div class="row">
          <div class="hero-unit">          
@@ -117,27 +104,7 @@
 </template>
 
 <template name="about">
-       <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Bicycle Security Alarm</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="/">Home</a></li>
-              <li class="active"><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/locate">Where's My Bike?</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div> 
+    
     <div class="container">
        <div class="row-fluid section1">
 
@@ -177,27 +144,7 @@
 </template>
 
 <template name="contact">
-       <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Bicycle Security Alarm</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li class="active"><a href="/contact">Contact</a></li>
-              <li><a href="/locate">Where's My Bike?</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+   
   <div class="container">
     <div class="row-fluid section1">
       <div class="span4">
@@ -213,4 +160,32 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="locate">
+   <div class="modal hide fade">
+      <div class="modal-header">
+   
+        <h3>Thank you for visiting!</h3>
+      </div>
+  <div class="modal-body">
+    <p>This feature will be ready soon! In the meantime </div>
+    <div class="modal-footer">
+    
+    <a href="/" class="btn btn-danger">OK</a>
+    </div>
+  </div>
+   <div class="container-fluid">
+      <div class="row-fluid">
+         <div id="map-canvas" class="span8" style="height:500px">
+            
+         </div>
+         <div class="span4">
+            <h1>Where's My Bike?</h1>
+            <p>
+             <button class="btn btn-large btn-block btn-primary" type="button"><i class="icon-search"></i>Find Now!</button>
+            </p>
+         </div>
+      </div>
+   </div>
 </template>
