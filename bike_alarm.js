@@ -20,6 +20,14 @@ if (Meteor.isClient) {
   Template.contact.destroyed = function () {
      $("#contactNav").removeClass('active');
   };
+  
+  Template.help.destroyed = function () {
+     $("#helpNav").removeClass('active');
+  };
+
+  Template.help.rendered = function () {
+     $("#helpNav").addClass('active');
+   };
 
   Template.locate.rendered = function () {
      $("#locateNav").addClass('active');
