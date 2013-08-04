@@ -80,7 +80,8 @@ if (Meteor.isClient) {
     
     '/contact': 'contact',
     
-    '/locate': 'locate' 
+    '/locate': 'locate',
+    '/help': 'help' 
   });
 
   Template.hello.greeting = function () {
