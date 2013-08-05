@@ -88,7 +88,14 @@ if (Meteor.isClient) {
     return "Welcome to bike_alarm.";
   };
   
-
+  Template.locate.events({
+    'click button.locate' : function () {
+      //search from mongodb using email address as key
+      //get only the top 10 history and render as bootstrap table
+      //with hyperlink refreshing the Google maps for each locations
+      //use drop markers to mark each location
+    }  
+  });
 
   Template.hello.events({
     'click input.learn' : function () {
@@ -153,6 +160,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-   // Backbone.history.start({pushState: true});
+   
   });
+  // insert code here for HTTP POST request
 }
