@@ -187,7 +187,15 @@
             <input type="email" id="email-box" placeholder="Enter email address here"/>
             
             <p>
-             <button class="locate btn btn-large btn-block btn-primary" type="button"><i class="icon-search"></i>Find Now!</button>
+             <button class="locate btn btn-large btn-block btn-primary" type="button">
+                <i class="icon-search"></i>Find Now!</button>
+             <ul>
+               {{#each locations}}
+               <li>
+                 <a href={{email}}>{{email}}</a>
+               </li>
+               {{/each}}
+             </ul>   
             </p>
          </div>
       </div>

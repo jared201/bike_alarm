@@ -1,5 +1,7 @@
 if (Meteor.isClient) {
 
+  Locations = new Meteor.Collection("locations");
+
   Template.about.rendered = function () {
      $("#aboutNav").addClass('active');
    };
@@ -30,6 +32,7 @@ if (Meteor.isClient) {
    };
 
   Template.locate.rendered = function () {
+    
      $("#locateNav").addClass('active');
      var mapOptions = {
         zoom: 16,
@@ -72,16 +75,18 @@ if (Meteor.isClient) {
   Template.locate.destroyed = function () {
      $("#locateNav").removeClass('active');
   };
+
+
   Meteor.Router.add({
     
     '/': 'hello',
 
     '/about':  'about',  
     
-    '/contact': 'contact',
-    
+    '/contact': 'contact', 
     '/locate': 'locate',
-    '/help': 'help' 
+    '/help': 'help',
+        
   });
 
   Template.hello.greeting = function () {
@@ -89,11 +94,18 @@ if (Meteor.isClient) {
   };
   
   Template.locate.events({
-    'click button.locate' : function () {
+    'click button.locate' : function (e, tmpl) {
       //search from mongodb using email address as key
       //get only the top 10 history and render as bootstrap table
       //with hyperlink refreshing the Google maps for each locations
       //use drop markers to mark each location
+      e.preventDefault();
+      var email = { "email" : $("#email-box").val() };
+      console.log("Searching: " + $("#email-box").val());
+      var locations = Locations.find(email);
+      console.log("Record count: " + locations.count());
+      Template.locate.locations = locations;
+      Meteor.Router.to('locate');
     }  
   });
 
@@ -114,6 +126,7 @@ if (Meteor.isClient) {
         console.log("You pressed the real  button");
     }
   });
+
   Template.contact.rendered = function () {
      
        $("#contactNav").addClass('active');
@@ -158,9 +171,25 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
+  console.log('Hello Server!');
+
+  Meteor.methods ({
+    addLocations: function (locations){
+      Locations.insert(locations);
+      console.log ("New location has been added");
+    }
+  });
   Meteor.startup(function () {
     // code to run on server at startup
-   
+  
   });
   // insert code here for HTTP POST request
+  // check with Meteor.Router server-side handlers
+  Locations = new Meteor.Collection("locations");
+  Meteor.Router.add('/register', function() {
+    console.log(this.request.query);
+    var locations = this.request.query
+    Meteor.call ("addLocations", locations);
+  });
 }
