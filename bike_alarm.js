@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
   Locations = new Meteor.Collection("locations");
-
+  
   Template.about.rendered = function () {
      $("#aboutNav").addClass('active');
    };
@@ -32,7 +32,7 @@ if (Meteor.isClient) {
    };
 
   Template.locate.rendered = function () {
-    
+
      $("#locateNav").addClass('active');
      var mapOptions = {
         zoom: 16,
@@ -88,24 +88,37 @@ if (Meteor.isClient) {
     '/help': 'help',
         
   });
-
+  
+  Deps.autorun (function () {
+      var loc = Session.get('location');
+      Meteor.subscribe('location', loc);
+      console.log("subscribed");
+    }
+  );
   Template.hello.greeting = function () {
     return "Welcome to bike_alarm.";
   };
   
+  Template.location.locations = function () {
+     
+     return Locations.find(Session.get("email"));
+  };
+
   Template.locate.events({
     'click button.locate' : function (e, tmpl) {
       //search from mongodb using email address as key
       //get only the top 10 history and render as bootstrap table
       //with hyperlink refreshing the Google maps for each locations
       //use drop markers to mark each location
-      e.preventDefault();
+      //e.preventDefault();
       var email = { "email" : $("#email-box").val() };
       console.log("Searching: " + $("#email-box").val());
       var locations = Locations.find(email);
       console.log("Record count: " + locations.count());
-      Template.locate.locations = locations;
-      Meteor.Router.to('locate');
+      console.log("Records: " + locations);
+      
+      Session.set ("email", email);
+
     }  
   });
 

@@ -178,9 +178,7 @@
   </div>
    <div class="container-fluid">
       <div class="row-fluid">
-         <div id="map-canvas" class="span8" style="height:500px">
-            
-         </div>
+         {{> map_location}}
          <div class="span4">
             <h1>Where's My Bike?</h1>
             <!-- insert text field here with email address validation -->            
@@ -189,13 +187,7 @@
             <p>
              <button class="locate btn btn-large btn-block btn-primary" type="button">
                 <i class="icon-search"></i>Find Now!</button>
-             <ul>
-               {{#each locations}}
-               <li>
-                 <a href={{email}}>{{email}}</a>
-               </li>
-               {{/each}}
-             </ul>   
+                {{> location}}
             </p>
          </div>
       </div>
@@ -234,4 +226,20 @@
          </p>
       </div>
    </div>
+</template>
+
+<template name="location">
+  <ul>
+    {{#each locations}}
+    <li>      
+      {{email}}
+    </li>
+    {{/each}}
+  </ul>   
+</template>
+
+<template name="map_location">
+  <div id="map-canvas" class="span8" style="height:500px">
+            
+    </div>
 </template>
