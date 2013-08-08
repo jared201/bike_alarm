@@ -187,6 +187,7 @@
             <p>
              <button class="locate btn btn-large btn-block btn-primary" type="button">
                 <i class="icon-search"></i>Find Now!</button>
+                <br>
                 {{> location}}
             </p>
          </div>
@@ -229,17 +230,17 @@
 </template>
 
 <template name="location">
-  <ul>
+  <ul class="ul">
     {{#each locations}}
-    <li>      
-      {{email}}
+    <li id="{{selected}}" class="list">      
+      <a href="#">View this Location - Lat:{{lat}}, Long:{{long}}</a> 
     </li>
     {{/each}}
   </ul>   
 </template>
 
 <template name="map_location">
-  <div id="map-canvas" class="span8" style="height:500px">
-            
+  <div id="map-canvas" class="span8 {{redraw}}" style="height:500px">
+            <h2>Map will be loaded</h2>
     </div>
 </template>

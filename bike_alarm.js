@@ -31,7 +31,8 @@ if (Meteor.isClient) {
      $("#helpNav").addClass('active');
    };
 
-  Template.locate.rendered = function () {
+  
+  Template.map_location.rendered = function () {
 
      $("#locateNav").addClass('active');
      var mapOptions = {
@@ -41,7 +42,18 @@ if (Meteor.isClient) {
       };
       map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
-     
+     var coord = Session.get('coord');
+     if (coord !== undefined) {
+       console.log(coord.lat);
+       var pos = new google.maps.LatLng(coord.lat, coord.long);
+       var marker = new google.maps.Marker({
+         position:pos,
+         animation:google.maps.Animation.DROP
+       });
+       marker.setMap(map);
+       map.setCenter(pos);
+       return;
+     }
   // Try HTML5 geolocation
      if(navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(function(position) {
@@ -63,6 +75,7 @@ if (Meteor.isClient) {
    //    });
 
        map.setCenter(pos);
+       
         }, function() {
           handleNoGeolocation(true);
        });
@@ -103,6 +116,25 @@ if (Meteor.isClient) {
      
      return Locations.find(Session.get("email"));
   };
+  
+  Template.location.selected = function () {
+     console.log ("selected");
+     return this._id;
+  };
+
+  
+  Template.location.events ({
+    'click li' : function (evt) {
+      evt.preventDefault();
+      var coord = {"lat": this.lat, "long" : this.long};
+      console.log("Clicked: " + coord.lat + ":" + coord.long);
+      Session.set("coord", coord);
+    },
+    'mousdown li' : function (evt) {
+      console.log (this._id);
+      Router.setList(this._id);
+    }
+  });
 
   Template.locate.events({
     'click button.locate' : function (e, tmpl) {
@@ -139,6 +171,24 @@ if (Meteor.isClient) {
         console.log("You pressed the real  button");
     }
   });
+  
+  
+  Template.map_location.redraw = function () {
+     var coord = Session.get("coord");
+    // if (coord !== 'undefined') {
+    // var map = Session.get("map");
+
+    //   var pos = new google.maps.LatLng(coord.lat, coord.long);
+    //   var marker = new google.maps.Marker({
+    //     position:pos,
+    //     animation:google.maps.Animation.DROP
+    //   });    
+    //   marker.setMap(map);
+    //   map.setCenter(pos);      
+    // }
+    console.log ("Redraw: " + coord);
+    return coord;
+  };
 
   Template.contact.rendered = function () {
      
@@ -172,6 +222,8 @@ if (Meteor.isClient) {
    //    });
 
        map.setCenter(pos);
+       //Session.set ('map', true);
+
         }, function() {
           handleNoGeolocation(true);
        });
@@ -202,7 +254,8 @@ if (Meteor.isServer) {
   Locations = new Meteor.Collection("locations");
   Meteor.Router.add('/register', function() {
     console.log(this.request.query);
-    var locations = this.request.query
+    var locations = this.request.query;
     Meteor.call ("addLocations", locations);
-  });
+  });  
+
 }
