@@ -78,7 +78,8 @@
       <div class="row">
          <div class="hero-unit">          
             
-            <h1>Launching Soon!</h1>
+            <h1>Bicycle Security Alarm</h1>
+            <p>A security alarm app for bicycle</p>
             <br>
             <p>
               <button class="learn btn btn-large btn-primary" type="button">Learn more</button> 
@@ -89,10 +90,10 @@
       </div>
       <div class="row">
          <div class="span6">
-           <h1>Bicycle Security Alarm</h1>
-           <p>A security alarm app for bicycle coming soon on</p>
+           <h1>Now Available At Goods2Send!</h1>
+           
            <br>
-            <img src="http://i81.photobucket.com/albums/j202/jaredflo/icon_App_Google_small_zps62ffd6be.jpg" border="0" alt=" photo icon_App_Google_small_zps62ffd6be.jpg"/>
+            <img src="http://goods2send.com/image/data/g2slogo2.png" border="0" alt=" photo icon_App_Google_small_zps62ffd6be.jpg"/>
          </div>
          <div class="span6">
             <iframe src="http://player.vimeo.com/video/70824075" width="480" height="270" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/70824075">Bike Alarm</a> from <a href="http://vimeo.com/user3342451">Jared Odulio</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
@@ -151,12 +152,14 @@
       <div class="span4">
          <address>
            <strong>Advanced Idea Mekanix, Inc.</strong><br>
-              Manila, Philippines<br>
+              2157 Zafiro St.<br>
+              San Andres, Manila<br> 
+              Philippines<br>
                <br>
-           <abbr title="Phone">P:</abbr> (123) 456-7890
+           <abbr title="Phone">P:</abbr> +63-920-456-7890
          </address>
       </div>
-      <div class="span6 offset4" style="height:500px" id="map-canvas">
+      <div class="span8 offset4" style="height:500px" id="map_canvas">
         
       </div>
     </div>
@@ -230,7 +233,7 @@
 </template>
 
 <template name="location">
-  <ul class="ul">
+  <ul class="ul nav nav-list nav-fixed-sidebar">
     {{#each locations}}
     <li id="{{selected}}" class="list">      
       <a href="#">View this Location - Lat:{{lat}}, Long:{{long}}</a> 
@@ -240,7 +243,7 @@
 </template>
 
 <template name="map_location">
-  <div id="map-canvas" class="span8 {{redraw}}" style="height:500px">
+  <div id="map_canvas" class="span8 {{redraw}} " style="height:500px">
             <h2>Map will be loaded</h2>
     </div>
 </template>

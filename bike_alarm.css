@@ -1,12 +1,13 @@
 /* CSS declarations go here */
-html, body, #map-canvas {
+html, body, #map_canvas {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-#map-canvas {
-  width:750px
+#map_canvas {
+  max-width:none;
+  position:right;
 }
 
 #email-box {

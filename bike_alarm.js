@@ -40,7 +40,7 @@ if (Meteor.isClient) {
        // center: new google.maps.LatLng(-34.397, 150.644),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-      map = new google.maps.Map(document.getElementById('map-canvas'),
+      map = new google.maps.Map(document.getElementById('map_canvas'),
         mapOptions);
      var coord = Session.get('coord');
      if (coord !== undefined) {
@@ -114,7 +114,7 @@ if (Meteor.isClient) {
   
   Template.location.locations = function () {
      
-     return Locations.find(Session.get("email"));
+     return Locations.find(Session.get("email"), {limit : 5}, {sort : {$natural : -1}});
   };
   
   Template.location.selected = function () {
@@ -143,9 +143,9 @@ if (Meteor.isClient) {
       //with hyperlink refreshing the Google maps for each locations
       //use drop markers to mark each location
       //e.preventDefault();
-      var email = { "email" : $("#email-box").val() };
+      var email = { "email" : $("#email-box").val()};
       console.log("Searching: " + $("#email-box").val());
-      var locations = Locations.find(email);
+      var locations = Locations.find(email , {sort : {"email" : -1}});
       console.log("Record count: " + locations.count());
       console.log("Records: " + locations);
       
@@ -198,7 +198,7 @@ if (Meteor.isClient) {
        // center: new google.maps.LatLng(-34.397, 150.644),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-      map = new google.maps.Map(document.getElementById('map-canvas'),
+      map = new google.maps.Map(document.getElementById('map_canvas'),
         mapOptions);
      
   // Try HTML5 geolocation
