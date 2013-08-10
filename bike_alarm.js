@@ -68,13 +68,14 @@ if (Meteor.isClient) {
         marker.setMap(map);
         google.maps.event.addListener(marker, 'click', function() 
           {window.location.href = marker.url;});
+        map.setCenter(pos);  
    //     var infowindow = new google.maps.InfoWindow({
    //      map: map,
    //      position: pos,
    //      content: 'Here we are!'
    //    });
 
-       map.setCenter(pos);
+       //map.setCenter(pos);
        
         }, function() {
           handleNoGeolocation(true);
