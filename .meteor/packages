@@ -11,3 +11,5 @@ backbone
 underscore
 jquery
 http
+spiderable
+coffeescript

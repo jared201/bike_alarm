@@ -1,9 +1,10 @@
 <head>
   <title>Bicycle Security Alarm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A security alarm app for bicycle">
+    <meta name="description" content="A security alarm app for bicycle with gps tracker">
     <meta name="author" content="Jared Odulio">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51fb073e0b4c6ff2"></script>
     <!-- Le styles -->
 
     
@@ -40,6 +41,19 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1536123-11']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 </head>
 
 <body>
@@ -81,32 +95,48 @@
          <div class="full">          
             
             <h1 class="header-color">Bicycle Security Alarm</h1>
-            <p class="header-color">A security alarm app for bicycle</p>
+            <p class="header-color">A security alarm app with GPS tracker for bicycle</p>
             <br>
+            
             <p>
               <button class="learn btn btn-large btn-primary" type="button">Learn more</button> 
               
             </p> 
+                        
          </div>
         
       </div>
     </div>
     </header>
     <p></p>  
-      <div class="row">
-         <div class="span5 offset1">
-           <h4>Now Available At Goods2Send!</h4>
+      <div class="row-fluid">
+         <div class="span4 offset1">
+           <h4>Download Now At Goods2Send!</h4>
            
            <br>
             <a href="http://goods2send.com/bike_alarm_app"><img src="http://goods2send.com/image/data/g2slogo2.png" border="0" alt=" photo icon_App_Google_small_zps62ffd6be.jpg"/>
                           
             </a>
+            <br>
+            <br>
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        
+        
+        <!-- AddThis Button END -->
+
          </div>
          <div class="span7">
-            <iframe src="http://player.vimeo.com/video/70824075" width="100%" height="300px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/70824075">Bike Alarm</a> from <a href="http://vimeo.com/user3342451">Jared Odulio</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+            <iframe src="http://player.vimeo.com/video/72093487" width="95%" height="300px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/72093487">Bike Alarm</a> from <a href="http://vimeo.com/user3342451">Jared Odulio</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
          </div>
-      </div>
-          
+      </div>          
     </div> <!-- /container -->
   
 
@@ -163,8 +193,9 @@
               San Andres, Manila<br> 
               Philippines<br>
                <br>
-           <abbr title="Phone">P:</abbr> +63-920-900-9009194
+           <abbr title="Phone">P:</abbr> +63-920-900-9194
          </address>
+
       </div>
       <div class="span8 offset4" style="height:500px" id="map_canvas">
         

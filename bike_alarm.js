@@ -1,6 +1,7 @@
 if (Meteor.isClient) {
 
   Locations = new Meteor.Collection("locations");
+  var addthis_config = {"data_track_addressbar": true};
   
   Template.about.rendered = function () {
      $("#aboutNav").addClass('active');
@@ -90,6 +91,7 @@ if (Meteor.isClient) {
      $("#locateNav").removeClass('active');
   };
 
+ 
 
   Meteor.Router.add({
     
